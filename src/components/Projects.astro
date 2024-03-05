@@ -1,0 +1,65 @@
+---
+import { Image } from "astro:assets";
+import ProjectsData from "../data/ProjectsData.json";
+---
+
+<div class="frame">
+  <div class="my-10 text-center">
+    <h3 class="font-bold text-2xl sm:text-3xl md:text-5xl">My Projects</h3>
+    <h4 class="text-lg sm:text-xl md:text-2xl">
+      about website, program and others
+    </h4>
+  </div>
+  <div>
+    {
+      ProjectsData.map(
+        (project, idx) =>
+          idx < 3 && (
+            <div
+              class={`my-20 px-5 ${idx % 2 !== 0 ? "flex-row-reverse" : "flex-row"} md:flex`}
+            >
+              <div class="px-3 relative flex-1">
+                <Image
+                  class="w-full rounded-lg object-fill shadow"
+                  src={project.img}
+                  alt={project.title}
+                  width={400}
+                  height={300}
+                  title={project.title}
+                />
+              </div>
+              <div
+                class={`flex-1 px-3 ${idx % 2 !== 0 ? "sm:text-right" : ""}`}
+              >
+                <a
+                  class="hover:underline"
+                  target="_blank"
+                  href={project.source}
+                >
+                  <h4 class="my-3 text-slate-800 dark:text-slate-200 text-3xl font-bold">
+                    {project.title}
+                  </h4>
+                </a>
+                <div class="dark:text-slate-300 text-black">
+                  {project.descript}
+                </div>
+                {!!project.link.length && (
+                  <div class="my-3 underline">
+                    <a href={project.link} target="_blank">
+                      preview
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          )
+      )
+    }
+  </div>
+  <div class="text-center">
+    <a
+      class="border-2 hover:bg-black hover:text-white duration-300 border-black dark:border-white dark:hover:bg-white text-black dark:text-slate-200 dark:hover:text-black py-2 px-5 rounded-sm font-bold"
+      href={"/projects"}>more</a
+    >
+  </div>
+</div>

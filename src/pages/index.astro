@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Banner from "../components/Banner.astro";
+import { Image } from "astro:assets";
+import Contact from "../components/Contacts.astro";
+import ThreeWords from "../components/ThreeWords.astro";
+import Certificates from "../components/Certificates.astro";
+import Projects from "../components/Projects.astro";
+---
+
+<Layout title="Arikato111">
+  <main class="dark:bg-black">
+    <div class="box-lg dark:bg-black dark:text-white">
+      <Banner />
+    </div>
+    <Image
+      class="mt-5 mb-20 object-cover h-[400px] w-[100vw]"
+      src={"/j2.jpg"}
+      alt="sky"
+      width={1000}
+      height={600}
+    />
+    <div class="bg-gray-50 bg-dark dark:text-slate-200">
+      <div class="box">
+        <Contact />
+      </div>
+    </div>
+    <ThreeWords />
+    <div class="bg-gray-50 bg-dark dark:text-white">
+      <div class="box">
+        <Certificates />
+      </div>
+    </div>
+    <div class="box dark:bg-black text-black">
+      <Projects />
+    </div>
+  </main>
+</Layout>

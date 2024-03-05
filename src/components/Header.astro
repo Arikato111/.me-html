@@ -1,0 +1,66 @@
+<header
+  class="shadow sticky top-0 z-50 bg-white dark:bg-zinc-950 dark:border-zinc-600 dark:border-b dark-line"
+>
+  <nav
+    class="h-14 flex flex-col md:flex-row items-start md:items-center px-5 max-w-[1200px] mx-auto"
+  >
+    <div class="h-full md:h-auto">
+      <a href={"/"} class="h-14 md:h-auto flex font-bold">
+        <div class="flex items-center dark:text-white">
+          <img
+            class="rounded inline-block mx-3 dark:border-white dark:border-2"
+            src="/na.svg"
+            alt="logo"
+            width={32}
+            height={32}
+          />
+          Arikato111
+        </div>
+      </a>
+    </div>
+    <div class="bg-black dark:bg-slate-200 w-[2px] h-3/6 mx-3 hidden md:block">
+    </div>
+    <button tabindex="0" class="md:hidden absolute top-0 right-0 p-3 btn-focus">
+      <svg
+        stroke="currentColor"
+        fill="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        class="dark:fill-white"
+        height="32"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path fill="none" d="M0 0h24v24H0z"></path><path
+          d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg
+      >
+    </button>
+    <div
+      class={`menu-content w-full shadow md:shadow-none bg-white dark:bg-black md:w-auto`}
+    >
+      <a class="nav-link" href={"/certificates"}>Certificates</a>
+      <a class="nav-link" href={"/projects"}>Projects</a>
+      <a class="nav-link" href={"/about"}>About</a>
+      <a class="nav-link" href={"/contacts"}>Contacts</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .menu-content {
+    display: none;
+  }
+
+  .btn-focus:focus + .menu-content {
+    display: block;
+  }
+
+  .menu-content:active {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .menu-content {
+      display: block;
+    }
+  }
+</style>
