@@ -1,0 +1,39 @@
+---
+import CertificatesData from "../../data/CertificatesData.json";
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+export function getStaticPaths() {
+  return [
+    ...CertificatesData.map((cer) => ({
+      params: {
+        id: `${cer.id}`,
+      },
+    })),
+  ];
+}
+const { id } = Astro.params;
+const cer = CertificatesData.filter((c) => c.id == Number(id))[0];
+---
+
+<Layout title={`${cer.type} | Arikato111`}>
+  <main class="frame dark:bg-black dark:text-slate-200">
+    <div class="my-10 text-center">
+      <h3 class="px-2 font-bold text-3xl sm:text-4xl md:text-5xl">
+        {cer.title}
+      </h3>
+      <h4 class="texl-lg sm:text-xl md:text-2xl">{cer.type}</h4>
+    </div>
+    <div class="bg-gray-50 bg-dark">
+      <div class="box">
+        <Image src={cer.img.high} alt={cer.title} width={1920} height={1080} />
+      </div>
+    </div>
+    <div class="text-center mt-10">
+      <a
+        class="border-2 hover:bg-black hover:text-white duration-300 border-black dark:border-white dark:hover:bg-white dark:hover:text-black py-2 px-5 rounded-sm font-bold"
+        href={cer.link}
+        target="_blank">source</a
+      >
+    </div>
+  </main>
+</Layout>
