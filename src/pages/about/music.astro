@@ -1,0 +1,37 @@
+---
+import AboutMeData from "../../data/AboutMe.json";
+import AboutMeLayout from "../../layouts/AboutMeLayout.astro";
+---
+
+<AboutMeLayout title="Music | Arikato111">
+  <div class="mb-10 box pt-3 pb-10 dark:text-slate-200">
+    <div class="my-10 text-center">
+      <h3 class="font-bold text-3xl sm:text-4xl md:text-5xl">Music</h3>
+      <h4 class="texl-lg sm:text-xl md:text-2xl">My favorite or like music</h4>
+    </div>
+    <div class="text-center md:grid grid-cols-2">
+      {
+        AboutMeData.music.map((music, idx) => (
+          <div class="text-center mb-10">
+            <div class="text-center">
+              <a href={music.link} target="_blank">
+                <img
+                  class="hover:cursor-pointer inline-block rounded-lg object-cover w-[360px] h-[200px] shadow"
+                  width={360}
+                  height={200}
+                  src={`https://i.ytimg.com/vi/${music.youtube_id}/hqdefault.jpg`}
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="py-1">
+              <a class="hover:underline" href={music.link} target="_blank">
+                {music.name}
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</AboutMeLayout>
