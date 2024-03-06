@@ -18,7 +18,7 @@ if (CertificatesData[0].id == 0) CertificatesData.reverse();
       <div class="box-lg">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {
-            CertificatesData.map((cer, idx) => (
+            CertificatesData.map((cer) => (
               <div class="my-7 px-5 flex items-center flex-col">
                 <a href={"/certificates/" + cer.id}>
                   <Image
