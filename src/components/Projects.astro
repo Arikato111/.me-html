@@ -1,6 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import ProjectsData from "../data/ProjectsData.json";
+import type { AboutMe } from "../components/interface";
+const AboutMeData: AboutMe = await (
+  await fetch("https://nawasan.dev/api/info")
+).json();
+const ProjectsData = AboutMeData.projects;
 ---
 
 <div class="frame">

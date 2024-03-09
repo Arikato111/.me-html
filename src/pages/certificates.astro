@@ -1,9 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import CertificatesData from "../data/CertificatesData.json";
+import type { AboutMe } from "../components/interface";
+const AboutMeData: AboutMe = await (
+  await fetch("https://nawasan.dev/api/info")
+).json();
+
+const CertificatesData = AboutMeData.certificates;
 if (CertificatesData[0].id == 0) CertificatesData.reverse();
 ---
+
 <Layout title="Certificates | Arikato111">
   <div class="frame dark:bg-black dark:text-slate-200">
     <div class="my-10 text-center">

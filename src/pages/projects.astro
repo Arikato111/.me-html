@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProjectsData from "../data/ProjectsData.json";
+import type { AboutMe } from "../components/interface";
+const AboutMeData: AboutMe = await (
+  await fetch("https://nawasan.dev/api/info")
+).json();
+const ProjectsData = AboutMeData.projects;
+
 import { Image } from "astro:assets";
 ---
 

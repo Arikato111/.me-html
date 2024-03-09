@@ -1,8 +1,18 @@
 ---
-import CertificatesData from "../../data/CertificatesData.json";
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-export function getStaticPaths() {
+import type { AboutMe } from "../../components/interface";
+const AboutMeData: AboutMe = await (
+  await fetch("https://nawasan.dev/api/info")
+).json();
+const CertificatesData = AboutMeData.certificates;
+
+export async function getStaticPaths() {
+  const AboutMeData: AboutMe = await (
+    await fetch("https://nawasan.dev/api/info")
+  ).json();
+  const CertificatesData = AboutMeData.certificates;
+
   return [
     ...CertificatesData.map((cer) => ({
       params: {

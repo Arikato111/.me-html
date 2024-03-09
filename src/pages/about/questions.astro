@@ -1,6 +1,9 @@
 ---
 import AboutMeLayout from "../../layouts/AboutMeLayout.astro";
-import AboutMeData from "../../data/AboutMe.json";
+import type { AboutMe } from "../../components/interface";
+const AboutMeData: AboutMe = await (
+  await fetch("https://nawasan.dev/api/info")
+).json();
 ---
 
 <AboutMeLayout title="Questions | Arikato111">
