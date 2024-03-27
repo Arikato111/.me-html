@@ -32,6 +32,10 @@
     }
 }
 
+main {
+    animation: fadding 2s;
+}
+
 .question-content {
     height: 0;
 }
@@ -74,4 +78,12 @@ footer {
         border-color: #242424;
     }
 
+}
+
+@keyframes fadding {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
 }
